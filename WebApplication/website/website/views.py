@@ -1,0 +1,46 @@
+from django.http import HttpResponse
+from django.shortcuts import render
+
+def index(request):
+    return render(request,'index.html')
+    #return HttpResponse("<h1>Md Musleh Uddin Khan</h1>")
+
+def about(request):
+    return HttpResponse('''<a href="https://www.facebook.com/who.agent.007"> About Md Musleh Uddin Khan </a></br><a href="/">Back</a>''')
+
+
+def analyze(request):
+    djtext = request.GET.get('text','default')         #get the text from web input
+    removepunc = request.GET.get('removepunc','off')  #check checker on or off default off
+    fullcaps = request.GET.get('fullcaps','off')      #check checker on or off default off
+    removenewline = request.GET.get('removenewline','off')
+    analyzed = ""
+    if (removepunc=="on" and fullcaps=="on"):          #remove punc and change to upper case
+        punctuationsList = '''!~()-=[]{};:'"\|<>,./?@#$%^&*'''
+        for char in djtext:
+            if char not in punctuationsList:
+                analyzed +=char.upper() 
+        anal = {'purpose':'Removed Punctuations and Change to upper case','analyzed_text':analyzed}
+        return render(request,'analyze.html',anal)    #retur webapp the result
+    elif fullcaps =="on":                            #chage to upper case
+        #analyzed = ""
+        for char in djtext:
+            analyzed += char.upper() 
+        anal = {'purpose':'Change to upper case','analyzed_text':analyzed}
+        return render(request,'analyze.html',anal)
+    elif removenewline == "on":
+        for char in djtext:
+            if char != "\n":
+                analyzed += char
+        anal = {'purpose':'Remove new Line','analyzed_text':analyzed}
+        return render(request,'analyze.html',anal)
+    elif removepunc=="on":                           #remove punc
+        punctuationsList = '''!~()-=[]{};:'"\|<>,./?@#$%^&*'''
+        for char in djtext:
+            if char not in punctuationsList:
+                analyzed += char
+        anal = {'purpose':'Removed Punctuations','analyzed_text':analyzed}
+        return render(request,'analyze.html',anal)
+    else:
+        return HttpResponse('Error, Click on the checkbox and TRY AGAIN')
+    
