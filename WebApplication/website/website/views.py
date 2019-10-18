@@ -14,6 +14,7 @@ def analyze(request):
     removepunc = request.GET.get('removepunc','off')  #check checker on or off default off
     fullcaps = request.GET.get('fullcaps','off')      #check checker on or off default off
     removenewline = request.GET.get('removenewline','off')
+    charcount = request.GET.get('charcount','off')
     analyzed = ""
     if (removepunc=="on" and fullcaps=="on"):          #remove punc and change to upper case
         punctuationsList = '''!~()-=[]{};:'"\|<>,./?@#$%^&*'''
@@ -41,6 +42,13 @@ def analyze(request):
                 analyzed += char
         anal = {'purpose':'Removed Punctuations','analyzed_text':analyzed}
         return render(request,'analyze.html',anal)
+    elif charcount == "on":
+        a = 0
+        for char in djtext:
+            if not(char == " "):
+                a = a + 1
+        anal = {'purpose':'Count Char','analyzed_text':a}
+        return render(request,'analyze.html',anal)
     else:
-        return HttpResponse('Error, Click on the checkbox and TRY AGAIN')
+        return HttpResponse('Error, Click on any checkbox and TRY AGAIN')
     
