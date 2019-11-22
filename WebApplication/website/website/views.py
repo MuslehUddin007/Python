@@ -10,11 +10,11 @@ def about(request):
 
 
 def analyze(request):
-    djtext = request.GET.get('text','default')         #get the text from web input
-    removepunc = request.GET.get('removepunc','off')  #check checker on or off default off
-    fullcaps = request.GET.get('fullcaps','off')      #check checker on or off default off
-    removenewline = request.GET.get('removenewline','off')
-    charcount = request.GET.get('charcount','off')
+    djtext = request.POST.get('text','default')         #get the text from web input
+    removepunc = request.POST.get('removepunc','off')  #check checker on or off default off
+    fullcaps = request.POST.get('fullcaps','off')      #check checker on or off default off
+    removenewline = request.POST.get('removenewline','off')
+    charcount = request.POST.get('charcount','off')
     analyzed = ""
     if (removepunc=="on" and fullcaps=="on"):          #remove punc and change to upper case
         punctuationsList = '''!~()-=[]{};:'"\|<>,./?@#$%^&*'''

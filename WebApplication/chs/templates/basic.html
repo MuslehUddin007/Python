@@ -8,22 +8,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Text analyze Result</title>
+    <title>{% block title %} {% endblock%} </title>
+    <style>{% block css %} {% endblock %}</style>
   </head>
   <body>
-    <!--Welcome alart-->
-    <div class="alert alert-success" role="alert">
-            {{purpose}} Result
-          </div>
-    <!--Welcome alart close-->
+      {% block body%}
+      {% endblock %}
 
-    <p class="text-white bg-success">
-            {{analyzed_text}} <!--<pre>Show text as it is</pre>-->
-        </p>
-
-    <footer>
-    <a href='/' type ="button" class="btn btn-outline-success"> Home </a>
-    </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

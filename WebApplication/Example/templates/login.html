@@ -1,0 +1,95 @@
+{% extends 'basic.html'%}
+
+{% block title %} Log In {% endblock %}
+{% block css %}
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url(image/signupbg.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.log-in-form{
+    width: 300px;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+    background: #fff;
+    padding: 20px;
+    margin: 8% auto 0;
+    taxt-align: center;
+}
+
+.log-in-form h1{
+    color: #1c8adb;
+    margin-bottom: 30;
+    text-align: center;
+}
+
+.input-box{
+    width: 85%;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px 0;
+    margin-left: 25px;
+    border: 1px solid #999;
+    outline: none;
+}
+button{
+    color: #fff;
+    width: 90%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    margin: 10px 0;
+    margin-left: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.login-btn{
+    background-color: #1c8adb;
+}
+a{
+    text-decoration: none;
+}
+
+img{
+    width: 70px;
+    margin-top: -50px;
+    margin-left: 110px;
+}
+p{
+    text-align: center;
+}
+
+.user{
+    margin-bottom: -50px;
+    margin-left: -10px;
+    width: 30px;
+}
+.password{
+    margin-bottom: -50px;
+    margin-left: -10px;
+    width: 30px;
+}
+{% endblock%}
+
+{% block body %}
+
+<div class="log-in-form">
+    <img src="image/DaffodilLogo.png">
+    <h1> Log In </h1>
+    <form>
+        <img src="image/user.png" class="user">
+        <input type="email" class="input-box" placeholder="Your Email">
+        <img src="image/password.png" class="password">
+        <input type="password" class="input-box" placeholder="Your Password">
+
+        <button type="button" class="login-btn">Log In</button>
+        <p>Create New Account <a href="signup.html">Sign Up</a></p>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'basic.html' %}
+
+{% block title %} Sign Up {% endblock %}
+
+<!--Css block-->
+{% block css %}
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url(image/signupbg.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.sign-up-form{
+    width: 300px;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+    background: #fff;
+    padding: 20px;
+    margin: 8% auto 0;
+    taxt-align: center;
+}
+
+.sign-up-form h1{
+    color: #1c8adb;
+    margin-bottom: 30;
+    text-align: center;
+}
+
+.input-box{
+    width: 100%;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #999;
+    outline: none;
+}
+button{
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.signup-btn{
+    background-color: #1c8adb;
+}
+a{
+    text-decoration: none;
+}
+
+img{
+    width: 70px;
+    margin-top: -50px;
+    margin-left: 90px;
+}
+
+p{
+    text-align: center;
+}
+{% endblock %}
+<!--Css block end-->
+
+<!--body start-->
+{% block body %}
+<div class="sign-up-form">
+    <img src="http://www.studentstation.com/inst/logos/daffodil-international-university.png">
+    <h1> Sign Up</h1>
+    <form action="send" method="POST">
+            {% csrf_token %}
+        <input type="fullname" class="input-box" placeholder="Your Full Name" name="fn" required>
+        <input type="phone" class="input-box" placeholder="Your Phone Number" name="ph" required>
+        <input type="email" class="input-box" placeholder="Your Email" name="em" required>
+        <input type="password" class="input-box" placeholder="Your Password" name="pa" required>
+
+        <button type="submit" class="signup-btn">Sign Up</button>
+        <p> Do you have an account ? <a href="login">Log In</a></p>
+    </form>
+</div>
+{% endblock %}
+<!--boyd end-->

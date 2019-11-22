@@ -1,0 +1,34 @@
+{% extends 'basic.html' %}
+
+{% block title %} Home Page{% endblock %}
+{% block css %}
+.btn{
+    margin-top: 200px;
+    margin-left: 300px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+h4{
+    margin-top: 50px;
+    margin-left: 515px;
+}
+{% endblock %}
+{% block body %}
+
+<!--alart start-->
+<div class="alert alert-success" role="alert">
+    <strong>Welcome TO </strong> Couseling Hour Scheduling Module.
+  </div
+<!--alart end here-->
+
+<!--button start-->
+<div>
+<button type="button" class="btn btn-outline-success" onclick="window.location.href='signup'">Sign Up As Teacher</button>
+<button type="button" class="btn btn-outline-success" onclick="window.location.href='signup'">Sign Up As Student</button>
+</div>
+<!--button end here-->
+
+<h4 id='h'> If you have already account  <a href="login"> Log In</a> </h4>
+
+{% endblock %}
